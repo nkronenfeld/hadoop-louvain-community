@@ -448,7 +448,7 @@ public class Community {
             if (nb_moves > 0)
                 improvement = true;
 
-        } while (nb_moves > 0 && Math.abs(new_mod - cur_mod) > min_modularity);
+        } while (nb_moves > 0 && (new_mod - cur_mod) > min_modularity);
 
         return improvement;
     }
