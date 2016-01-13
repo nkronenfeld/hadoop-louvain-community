@@ -368,7 +368,15 @@ public class Community {
 
 
         }
-        g2.setRemoteMaps(g.getRemoteMaps());
+
+        // Update sources in the remote maps lists to the new numbering
+        Vector<RemoteMap> oldRemoteMaps = g.getRemoteMaps();
+        Vector<RemoteMap> newRemoteMaps = new Vector<RemoteMap>();
+        for (RemoteMap oldMap: oldRemoteMaps.getList()) {
+            newRemoteMaps.getList().add(new RemoteMap(renumber.get(n2c.get(oldMap.source)), oldMap.getSink(), oldMap.getSinkPart()));
+        }
+
+        g2.setRemoteMaps(newRemoteMaps);
         return g2;
     }
 
